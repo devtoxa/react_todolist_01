@@ -1,5 +1,6 @@
 
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 function App() {
   const [todoList, setTodoList] = useState([
@@ -42,16 +43,16 @@ function App() {
   }
   const filteredTodoList = todoList.filter((todo) => todo.title.includes(searchText))
   return (
-    <div className="App">
+    <div className="App m-1 p-1">
       <h1>새로운 Todo 작성하기</h1>
-      <form className="Form">
-        <input type="text" value={newTodoText} name="newTodoText" placeholder="새로운 Todo" onChange={(e) => (setNewTodoText(e.target.value))} />
-        <button type="submit" onClick={handleNewTodo}>추가</button>
+      <form>
+        <input type="text" value={newTodoText} className="m-1 p-1" name="newTodoText" placeholder="새로운 Todo" onChange={(e) => (setNewTodoText(e.target.value))} />
+        <button className="btn btn-primary " type="submit" onClick={handleNewTodo}>추가</button>
       </form>
       <hr></hr>
       <h1>Todo List</h1>
-      <input type="search" name="searchText" value={searchText} onChange={(e) => (setSearchText(e.target.value))} placeholder="검색어를 입력하세요" />
-      <table className="TodoList">
+      <input type="search" name="searchText" className="m-1 p-1" value={searchText} onChange={(e) => (setSearchText(e.target.value))} placeholder="검색어를 입력하세요" />
+      <table className="table m-1 p-1">
         <thead>
 
         </thead>
@@ -74,7 +75,7 @@ function App() {
                     </label>
                   </td>
                   <td >
-                    <button onClick={() => handleDelete(todo.id)}>삭제</button>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(todo.id)}>삭제</button>
                   </td>
                 </tr>
               )
